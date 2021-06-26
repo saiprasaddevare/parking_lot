@@ -1,6 +1,5 @@
 require './helpers/common_helper'
 require './ticket'
-require 'byebug'
 
 # Car Class for holding car details
 class Car
