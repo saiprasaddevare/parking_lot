@@ -19,6 +19,7 @@ class Car
   def car_in_parking_lot
     return puts 'No cars in parking lot' if @car_details.empty?
 
+    puts "All Cars in Parking Lot \n"
     puts "Registration Number \t\t\t Color"
     @car_details.each do |car_details|
       puts "#{car_details[:registration_number]} \t\t\t\t #{car_details[:color]}"

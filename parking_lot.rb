@@ -26,7 +26,7 @@ class ParkingLot
     return puts check_for_parking_lot if @parking_lot_capacity.nil? || @parking_capacity_available.zero?
 
     car_registration_number = get_user_input('Enter Car Registration Number')
-    car_color = get_user_input('Enter Car Color')
+    car_color = get_user_input('Enter Car Color').downcase
 
     @car.add_car(car_registration_number, car_color)
     display_action_details("\n Car Parked in the parking lot \n\n")

@@ -4,7 +4,7 @@ require './helpers/common_helper'
 module CarHelper
   def registration_number_by_color
     separator_line
-    car_color = get_user_input('Provide Car Color Name')
+    car_color = get_user_input('Provide Car Color Name').downcase
     @car.registration_number_by_color(car_color)
     separator_line
   end
@@ -24,7 +24,7 @@ module CarHelper
 
   def ticket_number_by_car_color
     separator_line
-    car_color = get_user_input('Provide Car Color Name')
+    car_color = get_user_input('Provide Car Color Name').downcase
     @car.ticket_number_by_car_color(car_color)
     separator_line
   end
