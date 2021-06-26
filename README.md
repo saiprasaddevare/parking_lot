@@ -18,7 +18,7 @@ The system should also return some queries such as:
 
 1 Git clone the repo
 
-```git@github.com:saiprasaddevare/parking_lot.git```
+```git clone git@github.com:saiprasaddevare/parking_lot.git```
 
 2 Go to the folder after cloning the repo
 
