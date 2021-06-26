@@ -1,52 +1,40 @@
+require './car'
+require './ticket'
+require './helpers/parking_lot_helper'
+require './helpers/common_helper'
+require './helpers/car_helper'
+
 # Parking Lot class
 class ParkingLot
-  QUERIES = {
-    1 => 'Create Parking Lot',
-    2 => 'Park Car',
-    3 => 'Registration numbers of all cars of a particular Color',
-    4 => 'Ticket number in which a car with a given registration number is placed',
-    5 => 'Ticket numbers of all tickets where a car of a particular color is placed'
-  }.freeze
+  include ParkingLotHelper
+  include CommonHelper
+  include CarHelper
 
-  QUERIES_METHODS = {
-    'Create Parking Lot' => 'create_parking_lot',
-    'Park Car' => 'park_a_car'
-  }.freeze
-
-  attr_accessor :parking_lot_capacity
-
-  def queries_list
-    puts '##########################################################################################'
-    QUERIES.map do |key, queries|
-      puts "\t #{key} -> #{queries}"
-    end
-    puts "\nType exit or quit for closing program \n"
-    puts "########################################################################################## \n\n"
-  end
-
-  def selected_queries(selected_query)
-    return puts 'Please Enter Proper Input' if QUERIES[selected_query].nil?
-
-    send(QUERIES_METHODS[QUERIES[selected_query]])
+  def initialize
+    @parking_lot_capacity = 0
+    @car = Car.new
+    @ticket = Ticket.new
   end
 
   def create_parking_lot
-    puts 'Enter Parking Lot Capacity'
-    @parking_lot_capacity = gets.chomp
-    puts '############################################################################'
-    puts "\n Created Parking Lot with #{@parking_lot_capacity} capacity \n\n"
-    puts "############################################################################ \n\n"
+    @parking_lot_capacity = get_user_input('Enter Parking Lot Capacity')
+    display_action_details("\n Created Parking Lot with #{@parking_lot_capacity} capacity \n\n")
   end
 
   def park_a_car
-    puts 'Enter Car Registration Number'
+    car_registration_number = get_user_input('Enter Car Registration Number')
+    car_color = get_user_input('Enter Car Color')
+
+    @car.add_car(car_registration_number, car_color)
+    display_action_details("\n Car Parked in the parking lot \n\n")
+    @car.display_car_placed_in_lot
   end
 end
 
 parking_lot_instance = ParkingLot.new
 parking_lot_instance.queries_list
-puts "\nPlease Select number for above queries"
+puts "\n Please Select number for above queries"
 
 until (selected_query = gets.chomp) =~ /(?:ex|qu)it/i
-  parking_lot_instance.selected_queries(selected_query.to_i)
+  parking_lot_instance.selected_queries(selected_query.to_i, parking_lot_instance)
 end
