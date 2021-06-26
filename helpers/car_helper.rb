@@ -8,4 +8,10 @@ module CarHelper
     @car.registration_number_by_color(car_color)
     separator_line
   end
+
+  def car_in_parking_lot
+    separator_line
+    @car.car_in_parking_lot
+    separator_line
+  end
 end

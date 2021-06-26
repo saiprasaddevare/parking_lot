@@ -1,4 +1,5 @@
 require './helpers/common_helper'
+require './ticket'
 
 # Car Class for holding car details
 class Car
@@ -9,11 +10,15 @@ class Car
   end
 
   def add_car(registration_number, color)
+    ticket = Ticket.new
     @car_details.push({ 'registration_number': registration_number,
-                        'color': color })
+                        'color': color,
+                        'ticket': ticket })
   end
 
-  def display_car_placed_in_lot
+  def car_in_parking_lot
+    return puts 'No cars in parking lot' if @car_details.empty?
+
     puts "Registration Number \t\t\t Color"
     @car_details.each do |car_details|
       puts "#{car_details[:registration_number]} \t\t\t\t #{car_details[:color]}"
