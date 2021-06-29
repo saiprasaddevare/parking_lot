@@ -24,9 +24,22 @@ The system should also return some queries such as:
 
 ``` cd parking_lot ```
 
-3 run below command
+3 Bundle install
 
-``` ruby parking_lot.rb ```
+``` bundle install ```
+
+4 Run below command
+
+``` ruby ./bin/parking_lot.rb ```
+
+5 For running test cases
+
+``` bundle exec rspec ```
+
+5.1 For running specific spec
+
+``` bundle exec rspec spec/parking_lot_spec.rb ```
+``` bundle exec rspec spec/car.rb ```
 
 #
 Note :-

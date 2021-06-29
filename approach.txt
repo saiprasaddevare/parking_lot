@@ -1,6 +1,11 @@
 In this Parking lot cli application.There are 3 classes Parking Lot, Car, Ticket.
+
 In which the parking lot has details above parking lot like creation and parking a car. In Car there is details above the car that is park in parking lot with car details and some helper methods that provide the details of ticket based on color and registered number.
+
 The Ticket class is holding the ticket number. The logic is simple incrementig the ticket class vairable.
+
 There are separate helper modules that is used in parking_lot class.
+
 The instance of Car class holds the instance of ticket through which we get the ticket number for particular car's color or registred number.
+
 There is mapping for the option that is displayed on the cli. And as per the input the methods are being called. This is in parking_lot_helper module which is included in parking lot class.

@@ -2,6 +2,8 @@
 class Ticket
   @@ticket_number = 0
 
+  attr_accessor :ticket_number
+
   def initialize
     @ticket_number = generate_ticket_number
   end
@@ -10,7 +12,7 @@ class Ticket
     @@ticket_number += 1
   end
 
-  def ticket_number
-    @ticket_number
+  def self.ticket_number
+    @@ticket_number
   end
 end

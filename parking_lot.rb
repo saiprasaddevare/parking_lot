@@ -10,6 +10,8 @@ class ParkingLot
   include CommonHelper
   include CarHelper
 
+  attr_accessor :parking_lot_capacity, :parking_capacity_available
+
   def initialize
     @parking_capacity_available = 0
     @car = Car.new
@@ -43,11 +45,4 @@ class ParkingLot
   def existing_parking_lot
     "Parking Lot is already created with capacity #{@parking_lot_capacity} and avaliable capacity is #{@parking_capacity_available}"
   end
-end
-
-parking_lot_instance = ParkingLot.new
-parking_lot_instance.queries_list
-
-until (selected_query = gets.chomp) =~ /(?:ex|qu)it/i
-  parking_lot_instance.selected_queries(selected_query.to_i, parking_lot_instance)
 end

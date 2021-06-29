@@ -5,6 +5,8 @@ require './ticket'
 class Car
   include CommonHelper
 
+  attr_accessor :car_details
+
   def initialize()
     @car_details = []
   end
