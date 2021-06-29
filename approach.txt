@@ -9,3 +9,5 @@ There are separate helper modules that is used in parking_lot class.
 The instance of Car class holds the instance of ticket through which we get the ticket number for particular car's color or registred number.
 
 There is mapping for the option that is displayed on the cli. And as per the input the methods are being called. This is in parking_lot_helper module which is included in parking lot class.
+
+Note :- Please check README.md file for command related to start cli application and test cases execution.
